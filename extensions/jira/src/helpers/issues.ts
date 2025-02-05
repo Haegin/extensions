@@ -318,7 +318,7 @@ export function getCustomFieldValue(fieldSchema: CustomFieldSchema, value: unkno
 
 export function generateBranchName(issue: Issue | IssueDetail, nameFormat?: string): string {
   const issueKey = issue.key;
-  const issueSummary = issue.fields.summary.toLowerCase();
+  const issueSummary = issue.fields.summary.toLowerCase().replaceAll(" ", "-");
   const issueSummaryShort = issueSummary.split(" ").slice(0, 5).join("-");
 
   if (!nameFormat) {
